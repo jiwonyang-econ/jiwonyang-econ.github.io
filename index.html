@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jiwon Yang</title>
+<meta name="description" content="Jiwon Yang, PhD student in Economics at the University of California, Irvine. International trade and trade policy.">
+<style>
+:root {
+  --bg: #ffffff; --fg: #1a1a1a; --muted: #666a70; --line: #dfe3ea;
+  --navy: #14305a; --navy-soft: #eef2f8;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #121417; --fg: #e6e6e6; --muted: #9a9ea5; --line: #2c3340; --navy: #9fbce6; --navy-soft: #1b2230; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.7 "Iowan Old Style", "Charter", "Georgia", serif; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
+
+/* ---------- 머리말 ---------- */
+header { text-align: center; padding-bottom: 26px; border-bottom: 2px solid var(--navy); }
+.photo {
+  width: 150px; height: 150px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 18px;
+  border: 3px solid var(--navy-soft);
+}
+.photo-placeholder {
+  width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 18px; background: var(--navy-soft);
+  display: grid; place-items: center; color: var(--navy); font: 500 44px/1 "Iowan Old Style", "Georgia", serif; letter-spacing: .04em;
+}
+h1 { font-weight: 400; font-size: 40px; letter-spacing: .02em; margin: 0; color: var(--navy); }
+.aff { color: var(--muted); margin: 6px 0 16px; font-style: italic; }
+nav a {
+  font: 13.5px/1 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase;
+  margin: 0 12px; color: var(--navy); text-decoration: none; padding-bottom: 3px; border-bottom: 1px solid transparent;
+}
+nav a:hover { border-bottom-color: var(--navy); }
+
+/* ---------- 본문 ---------- */
+h2 {
+  font-weight: 400; font-size: 23px; color: var(--navy); margin: 46px 0 16px;
+  padding-bottom: 6px; border-bottom: 1px solid var(--line); position: relative;
+}
+h2::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 48px; height: 2px; background: var(--navy); }
+a { color: var(--navy); }
+.fields { margin-top: 4px; }
+.fields strong { color: var(--navy); font-weight: 600; }
+.paper { margin-bottom: 26px; }
+.paper .t { font-weight: 600; }
+.paper .co { color: var(--muted); font-size: 16px; }
+.links { font: 14px/1.4 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; margin-top: 6px; }
+.links a, .links summary { margin-right: 16px; color: var(--navy); cursor: pointer; text-decoration: none; }
+.links a:hover, .links summary:hover { text-decoration: underline; }
+details { display: inline; }
+details summary { display: inline; list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details[open] p { display: block; }
+details p {
+  font: 16px/1.65 "Iowan Old Style", "Charter", "Georgia", serif; color: var(--muted);
+  margin: 10px 0 0; padding: 10px 14px; background: var(--navy-soft); border-left: 3px solid var(--navy); border-radius: 0 4px 4px 0;
+}
+ul.cv { list-style: none; padding: 0; margin: 0; }
+ul.cv li { margin: 0 0 8px; }
+ul.cv .yr { color: var(--muted); }
+footer { margin-top: 64px; color: var(--muted); font-size: 14px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <!-- 사진 넣는 법: 이 저장소에 photo.jpg(정사각형 권장)를 올리고,
+       바로 아래 JY 줄을 지운 다음, 그 아래 img 줄의 앞뒤 주석 기호를 지우세요. -->
+  <div class="photo-placeholder" aria-hidden="true">JY</div>
+  <!-- <img class="photo" src="photo.jpg" alt="Jiwon Yang"> -->
+
+  <h1>Jiwon Yang</h1>
+  <div class="aff">PhD Student in Economics · University of California, Irvine</div>
+  <nav>
+    <a href="#research">Research</a>
+    <a href="cv.pdf">CV</a>
+    <a href="https://github.com/jiwonyang-econ">GitHub</a>
+    <!-- 링크드인: 본인 프로필 주소로 바꾸세요 (예: https://www.linkedin.com/in/아이디) -->
+    <a href="https://www.linkedin.com/in/YOUR_LINKEDIN">LinkedIn</a>
+    <!-- 이메일: UCI 메일 주소로 바꾸세요 -->
+    <a href="mailto:YOUR_UCINETID@uci.edu">Contact</a>
+  </nav>
+</header>
+
+<section>
+  <h2>About</h2>
+  <p>I am a PhD student in Economics at the University of California, Irvine. I study international trade and trade policy, with a focus on how firms and regions respond to tariff shocks and policy uncertainty. My work combines customs records, plant-level registries and satellite data to measure these responses at a fine geographic scale.</p>
+  <p class="fields"><strong>Fields:</strong> International Trade, Trade Policy, Economic Geography</p>
+</section>
+
+<section>
+  <h2 id="research">Work in Progress</h2>
+
+  <div class="paper">
+    <div class="t">Tariff Shocks, Policy Uncertainty, and the Response of Korean Manufacturing to the 2025–26 U.S. Tariff Regime</div>
+    <div class="links">
+      <details><summary>Abstract ▸</summary>
+        <p>The 2025–26 U.S. tariffs on Korean vehicles, parts and other manufactures moved through an announcement, two implementation dates, a negotiated rate cut and a court ruling within a single year. Using monthly customs exports by product, destination and municipality, a geocoded registry of Korean plants, and satellite night-time lights, I separate the effects of announcements, uncertainty and tariff levels, measure how much of the tariff exporters absorbed, and trace spillovers to domestic suppliers.</p>
+      </details>
+      <a href="https://github.com/jiwonyang-econ/kr_mfg_eo">Code</a>
+    </div>
+  </div>
+
+  <!-- 연구를 추가하려면 아래 블록을 복사해 제목·설명만 바꾸세요
+  <div class="paper">
+    <div class="t">Paper title</div>
+    <div class="co">with Coauthor Name</div>
+    <div class="links">
+      <details><summary>Abstract ▸</summary><p>Abstract text.</p></details>
+      <a href="paper.pdf">Paper</a>
+    </div>
+  </div>
+  -->
+</section>
+
+<section>
+  <h2>Education</h2>
+  <ul class="cv">
+    <li><strong>PhD in Economics</strong>, University of California, Irvine <span class="yr">· in progress</span></li>
+    <!-- 이전 학위 예시:
+    <li><strong>MA in Economics</strong>, University Name <span class="yr">· 20XX</span></li>
+    <li><strong>BA in Economics</strong>, University Name <span class="yr">· 20XX</span></li>
+    -->
+  </ul>
+</section>
+
+<footer>Last updated October 2026</footer>
+
+</div>
+</body>
+</html>
