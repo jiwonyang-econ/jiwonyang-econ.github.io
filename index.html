@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jiwon Yang</title>
-<meta name="description" content="Jiwon Yang, PhD student in Economics at the University of California, Irvine. International trade and trade policy.">
+<meta name="description" content="Jiwon Yang, PhD student in Economics at the University of California, Irvine. International trade and behavioral macroeconomics.">
 <style>
 :root {
   --bg: #ffffff; --fg: #1a1a1a; --muted: #666a70; --line: #dfe3ea;
@@ -15,25 +15,32 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.7 "Iowan Old Style", "Charter", "Georgia", serif; }
-.wrap { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
+.wrap { max-width: 740px; margin: 0 auto; padding: 56px 20px 80px; }
+.sans { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
 
 /* ---------- 머리말 ---------- */
-header { text-align: center; padding-bottom: 26px; border-bottom: 2px solid var(--navy); }
-.photo {
-  width: 150px; height: 150px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 18px;
-  border: 3px solid var(--navy-soft);
-}
-.photo-placeholder {
+header { text-align: center; padding-bottom: 22px; border-bottom: 2px solid var(--navy); }
+.photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 18px; border: 3px solid var(--navy-soft); }
+.photo-fallback {
   width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 18px; background: var(--navy-soft);
-  display: grid; place-items: center; color: var(--navy); font: 500 44px/1 "Iowan Old Style", "Georgia", serif; letter-spacing: .04em;
+  display: none; place-items: center; color: var(--navy); font-size: 44px; letter-spacing: .04em;
 }
 h1 { font-weight: 400; font-size: 40px; letter-spacing: .02em; margin: 0; color: var(--navy); }
 .aff { color: var(--muted); margin: 6px 0 16px; font-style: italic; }
-nav a {
+nav a, nav button {
   font: 13.5px/1 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase;
-  margin: 0 12px; color: var(--navy); text-decoration: none; padding-bottom: 3px; border-bottom: 1px solid transparent;
+  margin: 0 11px; color: var(--navy); text-decoration: none; padding: 0 0 4px; border: 0; border-bottom: 2px solid transparent;
+  background: none; cursor: pointer;
 }
-nav a:hover { border-bottom-color: var(--navy); }
+nav a:hover, nav button:hover, nav .on { border-bottom-color: var(--navy); }
+.contact {
+  display: none; margin: 18px auto 0; max-width: 460px; padding: 14px 18px; background: var(--navy-soft); border-radius: 6px;
+  text-align: left; font: 15px/1.9 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+.contact.open { display: block; }
+.contact div { display: flex; gap: 12px; }
+.contact span { width: 74px; color: var(--muted); flex: none; }
+.contact a { color: var(--navy); word-break: break-all; }
 
 /* ---------- 본문 ---------- */
 h2 {
@@ -41,95 +48,180 @@ h2 {
   padding-bottom: 6px; border-bottom: 1px solid var(--line); position: relative;
 }
 h2::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 48px; height: 2px; background: var(--navy); }
+h3 { font-weight: 600; font-size: 15px; color: var(--muted); margin: 26px 0 10px; font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
 a { color: var(--navy); }
-.fields { margin-top: 4px; }
 .fields strong { color: var(--navy); font-weight: 600; }
-.paper { margin-bottom: 26px; }
+.paper { margin-bottom: 24px; }
 .paper .t { font-weight: 600; }
-.paper .co { color: var(--muted); font-size: 16px; }
 .links { font: 14px/1.4 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; margin-top: 6px; }
 .links a, .links summary { margin-right: 16px; color: var(--navy); cursor: pointer; text-decoration: none; }
 .links a:hover, .links summary:hover { text-decoration: underline; }
-details { display: inline; }
-details summary { display: inline; list-style: none; }
+details summary { list-style: none; display: inline; }
 details summary::-webkit-details-marker { display: none; }
-details[open] p { display: block; }
-details p {
+details.abs { display: inline; }
+details.abs[open] { display: block; margin-bottom: 6px; }
+details.abs p {
   font: 16px/1.65 "Iowan Old Style", "Charter", "Georgia", serif; color: var(--muted);
   margin: 10px 0 0; padding: 10px 14px; background: var(--navy-soft); border-left: 3px solid var(--navy); border-radius: 0 4px 4px 0;
 }
+.panel { display: none; }
+.panel.show { display: block; }
+.note { color: var(--muted); font-size: 16px; }
+ul.reports { list-style: none; padding: 0; margin: 0; }
+ul.reports li { padding: 9px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 74px 1fr; gap: 12px; }
+ul.reports .d { color: var(--muted); font: 14px/1.6 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; padding-top: 2px; }
+ul.reports .en { font-size: 17px; line-height: 1.5; }
+ul.reports .ko { color: var(--muted); font-size: 14.5px; line-height: 1.5; font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+ul.reports .s { display: inline-block; margin-left: 6px; font: 11.5px/1 -apple-system, "Segoe UI", sans-serif; color: var(--navy); background: var(--navy-soft); border-radius: 3px; padding: 3px 5px; vertical-align: 2px; }
+details.more > summary { display: inline-block; margin-top: 14px; font: 14px/1 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: var(--navy); cursor: pointer; }
 ul.cv { list-style: none; padding: 0; margin: 0; }
-ul.cv li { margin: 0 0 8px; }
+ul.cv li { margin: 0 0 14px; }
 ul.cv .yr { color: var(--muted); }
+ul.cv .sub { color: var(--muted); font-size: 16px; display: block; }
 footer { margin-top: 64px; color: var(--muted); font-size: 14px; text-align: center; }
+@media (max-width: 560px) { ul.reports li { grid-template-columns: 1fr; gap: 0; } nav a, nav button { margin: 0 7px; } }
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
-  <!-- 사진 넣는 법: 이 저장소에 photo.jpg(정사각형 권장)를 올리고,
-       바로 아래 JY 줄을 지운 다음, 그 아래 img 줄의 앞뒤 주석 기호를 지우세요. -->
-  <div class="photo-placeholder" aria-hidden="true">JY</div>
-  <!-- <img class="photo" src="photo.jpg" alt="Jiwon Yang"> -->
+  <!-- 사진: 이 저장소에 photo.jpg를 올리면 자동으로 표시됩니다. 없으면 이니셜이 나옵니다. -->
+  <img class="photo" src="photo.jpg" alt="Jiwon Yang"
+       onerror="this.style.display='none'; document.getElementById('fallback').style.display='grid';">
+  <div class="photo-fallback" id="fallback" aria-hidden="true">JY</div>
 
-  <h1>Jiwon Yang</h1>
+  <h1><a href="#home" style="color:inherit;text-decoration:none">Jiwon Yang</a></h1>
   <div class="aff">PhD Student in Economics · University of California, Irvine</div>
   <nav>
-    <a href="#research">Research</a>
+    <a href="#home" data-tab="home">Home</a>
+    <a href="#research" data-tab="research">Research</a>
+    <a href="#policy" data-tab="policy">Policy Papers</a>
     <a href="cv.pdf">CV</a>
-    <a href="https://github.com/jiwonyang-econ">GitHub</a>
-    <!-- 링크드인: 본인 프로필 주소로 바꾸세요 (예: https://www.linkedin.com/in/아이디) -->
-    <a href="https://www.linkedin.com/in/YOUR_LINKEDIN">LinkedIn</a>
-    <!-- 이메일: UCI 메일 주소로 바꾸세요 -->
-    <a href="mailto:YOUR_UCINETID@uci.edu">Contact</a>
+    <button type="button" id="contactBtn" aria-expanded="false" aria-controls="contact">Contact</button>
   </nav>
+  <div class="contact" id="contact">
+    <!-- 이메일: UCI 메일 주소로 바꾸세요 -->
+    <div><span>Email</span><a href="mailto:YOUR_UCINETID@uci.edu">YOUR_UCINETID@uci.edu</a></div>
+    <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/jiwon-yang-econ/">linkedin.com/in/jiwon-yang-econ</a></div>
+    <div><span>GitHub</span><a href="https://github.com/jiwonyang-econ">github.com/jiwonyang-econ</a></div>
+  </div>
 </header>
 
-<section>
+<!-- ================= HOME ================= -->
+<section class="panel" id="panel-home">
   <h2>About</h2>
-  <p>I am a PhD student in Economics at the University of California, Irvine. I study international trade and trade policy, with a focus on how firms and regions respond to tariff shocks and policy uncertainty. My work combines customs records, plant-level registries and satellite data to measure these responses at a fine geographic scale.</p>
-  <p class="fields"><strong>Fields:</strong> International Trade, Trade Policy, Economic Geography</p>
+  <p>I am a PhD student in Economics at the University of California, Irvine. Before starting the PhD, I spent more than five years as a researcher at the Korea International Trade Association (KITA), analyzing trade flows, export outlooks and trade policy for Korean firms and policymakers.</p>
+  <p>My research interests lie in international trade and behavioral macroeconomics, with a focus on uncertainty, expectations, adaptation and resilience.</p>
+  <p class="fields"><strong>Fields:</strong> International Trade, Behavioral Macroeconomics</p>
+
+  <h2>Education</h2>
+  <ul class="cv">
+    <li><strong>PhD in Economics</strong>, University of California, Irvine <span class="yr">· 2026–present</span></li>
+    <li><strong>Master of Statistics</strong>, Korea University <span class="yr">· 2026</span>
+      <span class="sub">Thesis: “A Study on Forecasting South Korea’s Exports using Machine Learning and Time Series Analysis”</span></li>
+    <li><strong>BA in Economics and BA in Psychology</strong>, Seoul National University <span class="yr">· 2021</span>
+      <span class="sub">Summa Cum Laude</span></li>
+  </ul>
+
+  <h2>Experience</h2>
+  <ul class="cv">
+    <li><strong>Korea International Trade Association (KITA)</strong>, Seoul <span class="yr">· 2021–present</span>
+      <span class="sub">Senior Researcher (2025–), Analysis &amp; Forecasting Department<br>
+      Researcher (2021–2024), Analysis &amp; Forecasting Department; Emerging Market &amp; Industries Research Department</span></li>
+  </ul>
 </section>
 
-<section>
-  <h2 id="research">Work in Progress</h2>
+<!-- ================= RESEARCH ================= -->
+<section class="panel" id="panel-research">
+  <h2>Work in Progress</h2>
 
-  <div class="paper">
-    <div class="t">Tariff Shocks, Policy Uncertainty, and the Response of Korean Manufacturing to the 2025–26 U.S. Tariff Regime</div>
-    <div class="links">
-      <details><summary>Abstract ▸</summary>
-        <p>The 2025–26 U.S. tariffs on Korean vehicles, parts and other manufactures moved through an announcement, two implementation dates, a negotiated rate cut and a court ruling within a single year. Using monthly customs exports by product, destination and municipality, a geocoded registry of Korean plants, and satellite night-time lights, I separate the effects of announcements, uncertainty and tariff levels, measure how much of the tariff exporters absorbed, and trace spillovers to domestic suppliers.</p>
-      </details>
-      <a href="https://github.com/jiwonyang-econ/kr_mfg_eo">Code</a>
-    </div>
-  </div>
+  <p class="note">Coming soon.</p>
 
-  <!-- 연구를 추가하려면 아래 블록을 복사해 제목·설명만 바꾸세요
+  <!-- 프로젝트를 넣을 때는 위 "Coming soon." 줄을 지우고 아래 블록의 주석 기호를 지운 뒤 제목·초록만 바꾸세요
   <div class="paper">
     <div class="t">Paper title</div>
-    <div class="co">with Coauthor Name</div>
     <div class="links">
-      <details><summary>Abstract ▸</summary><p>Abstract text.</p></details>
+      <details class="abs"><summary>Abstract ▸</summary><p>Abstract text.</p></details>
       <a href="paper.pdf">Paper</a>
     </div>
   </div>
   -->
 </section>
 
-<section>
-  <h2>Education</h2>
-  <ul class="cv">
-    <li><strong>PhD in Economics</strong>, University of California, Irvine <span class="yr">· in progress</span></li>
-    <!-- 이전 학위 예시:
-    <li><strong>MA in Economics</strong>, University Name <span class="yr">· 20XX</span></li>
-    <li><strong>BA in Economics</strong>, University Name <span class="yr">· 20XX</span></li>
-    -->
-  </ul>
+<!-- ================= POLICY PAPERS ================= -->
+<section class="panel" id="panel-policy">
+  <h2>Policy Papers</h2>
+  <p class="note">Policy papers written at the Korea International Trade Association (KITA). All papers are in Korean; English titles are translations.
+    TF = <i>Trade Focus</i>, TB = <i>Trade Brief</i>.</p>
+  <h3>Selected</h3>
+  <ul class="reports" id="selected"></ul>
+  <details class="more"><summary>Show all papers ▸</summary>
+    <ul class="reports" id="others"></ul>
+  </details>
 </section>
 
 <footer>Last updated October 2026</footer>
-
 </div>
+
+<script>
+/* ===== 보고서 목록 =====
+   url 칸에 LinkedIn에 걸어 둔 보고서 주소를 붙여 넣으면 제목이 링크가 됩니다 (비워 두면 링크 없이 표시).
+   sel: true 인 항목은 'Selected'에, 나머지는 'Show all'에 들어갑니다. */
+const REPORTS = [
+  {d:"2026.07", s:"Book", sel:true, en:"Korea’s Sustainable Trade Vision: Policy Recommendations for KITA’s 80th Anniversary", ko:"(제언집) 지속가능한 한국형 무역·통상 전략", url:""},
+  {d:"2026.02", s:"TF", sel:true, en:"Forecasting Korea’s Exports using Time Series and Machine Learning Models", ko:"시계열 및 머신러닝을 활용한 한국 수출 전망", url:""},
+  {d:"2025.12", s:"TF", sel:true, en:"Evaluation of Korea’s Exports and Imports in 2025 and Outlook for 2026", ko:"2025년 수출입 평가 및 2026년 전망", url:""},
+  {d:"2025.12", s:"TB", sel:false, en:"Commemorating the 62nd Trade Day: K-Trade, Opening New Frontiers", ko:"K-무역, 새로운 길을 열다: 제62회 무역의 날 기념", url:""},
+  {d:"2025.08", s:"TF", sel:true, en:"Examining Scenarios of Dollar Depreciation under Trump’s Second Administration and Its Implications", ko:"트럼프 2기 달러 약세 시나리오 점검 및 영향 분석", url:""},
+  {d:"2025.06", s:"TF", sel:false, en:"Export Business Survey Index (EBSI), Q3 2025", ko:"2025년 3/4분기 수출산업경기전망조사(EBSI)", url:""},
+  {d:"2025.03", s:"TF", sel:false, en:"Export Business Survey Index (EBSI), Q2 2025", ko:"2025년 2/4분기 수출산업경기전망조사(EBSI)", url:""},
+  {d:"2025.02", s:"TB", sel:true, en:"Impact Analysis of Tariff Policies under Trump’s Second Administration", ko:"트럼프 2기 행정부 관세조치에 따른 영향 분석", url:""},
+  {d:"2024.06", s:"TF", sel:true, en:"The Contribution of Exports to the National Economy, 2023", ko:"수출의 국민경제 기여 효과 분석(2023년)", url:""},
+  {d:"2024.05", s:"TF", sel:false, en:"Commemorating the 2024 Korea–Africa Summit: Korea–Africa Economic Cooperation Strategies", ko:"2024 한-아프리카 정상회의 개최 기념, 한-아프리카 경제협력 활성화 방안", url:""},
+  {d:"2024.04", s:"TF", sel:true, en:"The Global South in an Era of Economic Fragmentation: Strategic Lessons from India, Indonesia, Mexico, and Brazil", ko:"블록화 시대, 글로벌 사우스 활용전략: 인도, 인도네시아, 멕시코, 브라질을 중심으로", url:""},
+  {d:"2024.03", s:"TF", sel:false, en:"Strategies to Promote Global Technological Cooperation for Securing Advanced Industrial Competitiveness", ko:"초격차 산업경쟁력 확보를 위한 글로벌 기술협력 촉진방안", url:""},
+  {d:"2024.01", s:"TF", sel:false, en:"Securing the Workforce: Leveraging Foreign Talent to Enhance Global Industrial Competitiveness", ko:"생산인구 확보 종합대책 ④ 글로벌 산업 경쟁력 강화를 위한 해외 인력 활용 방안", url:""},
+  {d:"2024.01", s:"TF", sel:false, en:"Securing the Workforce: Policy Recommendations for Fostering a Family- and Child-Friendly Corporate Culture", ko:"생산인구 확보 종합대책 ① 기업내 親출산·양육문화 정착을 위한 정책 제언", url:""},
+  {d:"2023.02", s:"TB", sel:false, en:"Strategies for Economic Cooperation and Export Expansion with the Neo-Middle East", ko:"新중동(Neo-Middle East) 경제 협력 및 수출 확대 방안", url:""},
+  {d:"2022.12", s:"TF", sel:false, en:"Commemorating the 30th Anniversary of Korea–Vietnam Diplomatic Relations: The Past and Future of Bilateral Economic Cooperation", ko:"한-베 수교 30주년 기념, 한국과 베트남 경제협력의 발자취와 미래", url:""},
+  {d:"2022.12", s:"TF", sel:true, en:"A Next-Generation Trade Growth Roadmap for a Quantum Leap in the Korean Economy", ko:"한국경제 퀀텀점프를 위한 차세대 무역성장 로드맵", url:""},
+  {d:"2022.11", s:"TB", sel:false, en:"The Future of Manufacturing II: Servitization Cases and Innovation Strategies for Korean Firms", ko:"제조업의 미래 Ⅱ, 제조업의 서비스화 사례와 우리 기업의 혁신 전략", url:""},
+  {d:"2022.09", s:"TF", sel:true, en:"Determinants of Asian Headquarters Location for Multinational Corporations and Korea’s Policy Implications", ko:"글로벌 기업의 아시아 거점 결정요인 분석 및 한국의 유치전략", url:""},
+  {d:"2022.05", s:"TB", sel:true, en:"Scenario-based Analysis of the Economic Impact of China’s Lockdowns on Korea", ko:"중국의 봉쇄조치 시나리오별 한국 경제에 미치는 영향 분석", url:""},
+  {d:"2022.04", s:"TF", sel:false, en:"Changes in the Global Trade Environment and Korea’s Strategic Response: NEXT20", ko:"글로벌 무역통상 환경 변화와 우리의 대응 과제: NEXT20", url:""},
+  {d:"2022.04", s:"TF", sel:true, en:"Global Value Chains in the New Normal Era: Policy Challenges and Korea’s Strategic Response", ko:"글로벌 공급망의 뉴노멀과 우리의 대응", url:""},
+  {d:"2021.12", s:"TB", sel:false, en:"Eco-Friendly Trends in the Fashion Industry in the ESG Era and Their Implications", ko:"필환경 ESG 시대, 패션산업 친환경 트렌드와 시사점", url:""},
+  {d:"2021.10", s:"TB", sel:false, en:"ASEAN Webtoon Market Trends and Entry Strategies: Focus on Indonesia and Thailand", ko:"아세안 웹툰 시장 동향 및 진출전략: 인도네시아, 태국을 중심으로", url:""},
+  {d:"2021.08", s:"TF", sel:false, en:"Global Solar Power Market Trends and Strategies for Korean Firms", ko:"글로벌 태양광 시장 동향 및 우리기업 진출전략", url:""},
+  {d:"2021.07", s:"TB", sel:false, en:"Post-COVID-19 Trends in Korean Cosmetic Exports to Vietnam and Their Implications", ko:"코로나19 이후 對베트남 화장품 수출 트렌드와 시사점", url:""},
+  {d:"2021.03", s:"AI", sel:false, en:"AI Report on Promising Items: Household Dishwashers", ko:"유망품목 AI리포트 - 가정형 식기세척기", url:""},
+];
+
+function esc(s){ return s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function item(r){
+  const t = r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.en)}</a>` : esc(r.en);
+  return `<li><div class="d">${r.d}</div><div><div class="en">${t}<span class="s">${r.s}</span></div><div class="ko">${esc(r.ko)}</div></div></li>`;
+}
+document.getElementById("selected").innerHTML = REPORTS.filter(r => r.sel).map(item).join("");
+document.getElementById("others").innerHTML = REPORTS.filter(r => !r.sel).map(item).join("");
+
+/* ===== 탭 전환 (#research / #policy) ===== */
+function show(tab){
+  if (!["home","research","policy"].includes(tab)) tab = "home";
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("show", p.id === "panel-" + tab));
+  document.querySelectorAll("nav [data-tab]").forEach(a => a.classList.toggle("on", a.dataset.tab === tab));
+}
+window.addEventListener("hashchange", () => show(location.hash.slice(1)));
+show(location.hash.slice(1));
+
+/* ===== Contact 펼치기 ===== */
+const btn = document.getElementById("contactBtn"), box = document.getElementById("contact");
+btn.addEventListener("click", () => {
+  const open = box.classList.toggle("open");
+  btn.classList.toggle("on", open);
+  btn.setAttribute("aria-expanded", open);
+});
+</script>
 </body>
 </html>
